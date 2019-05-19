@@ -1,5 +1,7 @@
 package com.cafe24.mysite.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,8 @@ public class BoardService {
 	
 	public Boolean register(BoardVo vo) {
 		return boardDao.insert(vo);
+	}
+	public List<BoardVo> getList() {
+		return boardDao.getList();
 	}
 }

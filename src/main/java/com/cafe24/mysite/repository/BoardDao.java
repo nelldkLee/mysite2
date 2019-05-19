@@ -1,5 +1,7 @@
 package com.cafe24.mysite.repository;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,5 +17,9 @@ public class BoardDao {
 	public Boolean insert(BoardVo vo) {
 		int count = sqlSession.insert("board.insert", vo);
 		return 1 == count;
+	}
+
+	public List<BoardVo> getList() {
+		return sqlSession.selectList("board.getList");
 	}
 }

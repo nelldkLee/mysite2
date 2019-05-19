@@ -3,6 +3,9 @@
 
 <mapper namespace="board">
 	<select id="getList" resultType="boardvo">
+		select u.name userName, b.title title, b.content content, b.views views, b.reg_date regDate 
+			from board b, user u 
+		where b.user_no = u.no
 	</select>
 	<insert id="insert" parameterType="boardvo">
 		insert into board(user_no, content, views, reg_date) values(#{userNo}, #{content}, #{views}, now())
