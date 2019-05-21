@@ -6,21 +6,19 @@
 		SELECT b.no no, u.name userName,b.user_no userNo, b.title title, b.contents contents, b.hit hit, b.reg_date regDate, b.group_no groupNo, b.order_no orderNo  
 			FROM board b, user u 
 		WHERE b.user_no = u.no 
-		ORDER BY b.no DESC
+		ORDER BY b.group_no AND b.depth AND b.order_no
 	</select>
 	<insert id="insert" parameterType="boardvo">
 		INSERT INTO board(user_no, title, contents, hit, group_no, order_no, depth, reg_date) 
 			VALUES(#{userNo}, #{title}, #{contents}, 0,
 			<choose>
 				<when test="groupNo == null"> 
-					(SELECT IFNULL(MAX(b.group_no) + 1, 1) FROM board b),
-					(SELECT IFNULL(MAX(b.order_no) + 1, 1) FROM board b), 
-					(SELECT IFNULL(MAX(b.depth) + 1, 1) FROM board b), 
+					(SELECT IFNULL(MAX(b.group_no) + 1, 1) FROM board b), 1, 1, 
 				</when> 
 				<when test="groupNo != null"> 
-					(SELECT IFNULL(MAX(b.group_no) + 1, 1) FROM board b),
-					(SELECT IFNULL(MAX(b.order_no) + 1, 1) FROM board b), 
-					(SELECT IFNULL(MAX(b.depth) + 1, 1) FROM board b), 
+					#{groupNo},
+					#{orderNo}, 
+					#{depth}, 
 				</when>
 			</choose>
 			now())
