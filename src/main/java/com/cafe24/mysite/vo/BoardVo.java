@@ -2,24 +2,27 @@ package com.cafe24.mysite.vo;
 
 public class BoardVo {
 	
-	private Long no;
-	private Long userNo;
+	private Integer no;
+	private Integer userNo;
 	private String userName;
 	private String title;
-	private String content;
-	private int views;
+	private String contents;
+	private Integer hit;
 	private String regDate;
+	private Integer groupNo;
+	private Integer orderNo;
+	private Integer depth;
 	
-	public Long getNo() {
+	public Integer getNo() {
 		return no;
 	}
-	public void setNo(Long no) {
+	public void setNo(Integer no) {
 		this.no = no;
 	}
-	public Long getUserNo() {
+	public Integer getUserNo() {
 		return userNo;
 	}
-	public void setUserNo(Long userNo) {
+	public void setUserNo(Integer userNo) {
 		this.userNo = userNo;
 	}
 	public String getUserName() {
@@ -34,17 +37,17 @@ public class BoardVo {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getContent() {
-		return content;
+	public String getContents() {
+		return contents;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setContents(String contents) {
+		this.contents = contents;
 	}
-	public int getViews() {
-		return views;
+	public Integer getHit() {
+		return hit;
 	}
-	public void setViews(int views) {
-		this.views = views;
+	public void setHit(Integer hit) {
+		this.hit = hit;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -52,10 +55,28 @@ public class BoardVo {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+	public Integer getGroupNo() {
+		return groupNo;
+	}
+	public void setGroupNo(Integer groupNo) {
+		this.groupNo = groupNo;
+	}
+	public Integer getOrderNo() {
+		return orderNo;
+	}
+	public void setOrderNo(Integer orderNo) {
+		this.orderNo = orderNo;
+	}
+	public Integer getDepth() {
+		return depth;
+	}
+	public void setDepth(Integer depth) {
+		this.depth = depth;
+	}
 	@Override
 	public String toString() {
-		return "BoardVo [no=" + no + ", userNo=" + userNo + ", userName=" + userName + ", title=" + title + ", content="
-				+ content + ", views=" + views + ", regDate=" + regDate + "]";
+		return "BoardVo [no=" + no + ", userNo=" + userNo + ", userName=" + userName + ", title=" + title
+				+ ", contents=" + contents + ", hit=" + hit + ", regDate=" + regDate + ", groupNo=" + groupNo
+				+ ", orderNo=" + orderNo + ", depth=" + depth + "]";
 	}
-	
 }

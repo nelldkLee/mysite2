@@ -22,4 +22,18 @@ public class BoardDao {
 	public List<BoardVo> getList() {
 		return sqlSession.selectList("board.getList");
 	}
+
+	public BoardVo read(Integer no) {
+		return sqlSession.selectOne("board.read", no);
+	}
+
+	public Boolean delete(Integer no) {
+		int count = sqlSession.delete("board.delete", no);
+		return 1 == count;
+	}
+
+	public Boolean update(BoardVo vo) {
+		int count = sqlSession.update("board.update", vo);
+		return 1 == count;
+	}
 }

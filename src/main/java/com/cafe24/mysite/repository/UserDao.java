@@ -44,4 +44,8 @@ public class UserDao {
 		UserVo userVo = sqlSession.selectOne("user.getByEmailAndPassword",map);
 		return userVo;
 	}
+
+	public UserVo getByEmail(String email) {
+		 return sqlSession.selectOne("user.getByEmail", email);
+	}
 }

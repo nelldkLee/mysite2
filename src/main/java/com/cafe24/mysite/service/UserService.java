@@ -23,6 +23,10 @@ public class UserService {
 	public UserVo getUser(UserVo userVo) {
 		return userDao.get(userVo.getEmail(), userVo.getPassword());
 	}
-	
+
+	public Boolean checkEmail(String email) {
+		UserVo vo = userDao.getByEmail(email);
+		return vo != null;
+	}
 	
 }

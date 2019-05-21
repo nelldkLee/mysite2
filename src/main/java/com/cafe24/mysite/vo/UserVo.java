@@ -2,7 +2,7 @@ package com.cafe24.mysite.vo;
 
 public class UserVo {
 
-	private Long no;
+	private Integer no;
 	private String name;
 	private String email;
 	private String password;
@@ -15,10 +15,10 @@ public class UserVo {
 		this.email = email;
 		this.password = password;
 	}
-	public Long getNo() {
+	public Integer getNo() {
 		return no;
 	}
-	public void setNo(Long no) {
+	public void setNo(Integer no) {
 		this.no = no;
 	}
 	public String getName() {

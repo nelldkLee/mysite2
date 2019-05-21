@@ -30,12 +30,22 @@
 					<c:set var="count" value="${function:length(list)}"/>
 					<c:forEach items="${list}" var="vo" varStatus="status">				
 					<tr>
-						<td>${count-status.index}</td>
-						<td><a href="">${vo.title}</a></td>
-						<td>${vo.name}</td>
-						<td>${vo.views}</td>
+						<%-- <td>${count-status.index}</td> --%>
+						<td>${vo.no}</td>
+						<td style="text-align:left">
+							<c:if test="${vo.depth > 1}">
+								<c:forEach items="${vo.depth}">emsp;</c:forEach><img src="${pageContext.servletContext.contextPath}/assets/images/reply.png">
+							</c:if>
+							<a href="${pageContext.servletContext.contextPath}/board/read?no=${vo.no}">${vo.title}</a>
+						</td>
+						<td>${vo.userName}</td>
+						<td>${vo.hit}</td>
 						<td>${vo.regDate}</td>
-						<td><a href="${pageContext.servletContext.contextPath}/" class="del">삭제</a></td>
+						<td>
+							<c:if test="${authUser.no eq vo.userNo }">
+								<a href="${pageContext.servletContext.contextPath}/board/delete?no=${vo.no}" class="del">삭제</a>
+							</c:if>
+						</td>
 					</tr>
 					</c:forEach>
 				</table>

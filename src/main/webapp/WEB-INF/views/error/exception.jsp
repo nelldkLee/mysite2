@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="function" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -12,6 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>에러~~~~~~~~~~~~~~~~~~~~~</h1>
+	<h1>에러~~~~</h1>
+	<pre>
+	${exception}
+	</pre>
 </body>
 </html>

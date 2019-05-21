@@ -11,6 +11,12 @@
 	<select id="getByEmailAndPassword" resultType="uservo" parameterType="map">
 		select no, name from user where email = #{email} and password= #{password}
 	</select>
+	
+	<select id="getByEmail" resultType="uservo" parameterType="string">
+		select no, name from user where email = #{email}
+	</select>
+	
+	
 	<delete id="delete" parameterType="uservo">
 		delete from guestbook where no=#{no} and password=#{password}
 	</delete>

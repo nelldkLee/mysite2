@@ -20,4 +20,13 @@ public class BoardService {
 	public List<BoardVo> getList() {
 		return boardDao.getList();
 	}
+	public BoardVo read(Integer no) {
+		return boardDao.read(no);
+	}
+	public Boolean delete(Integer no) {
+		return boardDao.delete(no);
+	}
+	public Boolean modify(BoardVo vo) {
+		return boardDao.update(vo);
+	}
 }
