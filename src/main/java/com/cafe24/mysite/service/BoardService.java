@@ -15,6 +15,7 @@ public class BoardService {
 	private BoardDao boardDao;
 	
 	public Boolean register(BoardVo vo) {
+		boardDao.updateOrderNo(vo);
 		return boardDao.insert(vo);
 	}
 	public List<BoardVo> getList() {

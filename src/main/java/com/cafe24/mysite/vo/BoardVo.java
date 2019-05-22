@@ -79,4 +79,13 @@ public class BoardVo {
 				+ ", contents=" + contents + ", hit=" + hit + ", regDate=" + regDate + ", groupNo=" + groupNo
 				+ ", orderNo=" + orderNo + ", depth=" + depth + "]";
 	}
+	public String urlBuilder() {
+		return "?groupNo=" + groupNo + "&orderNo=" + orderNo + "&depth=" + depth;
+	}
+	public Integer getOrderNoPlus() {
+		return orderNo + 1;
+	}
+	public Integer getDepthPlus() {
+		return depth + 1;
+	}
 }

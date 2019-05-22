@@ -32,9 +32,9 @@
 					<tr>
 						<%-- <td>${count-status.index}</td> --%>
 						<td>${vo.no}</td>
-						<td style="text-align:left">
-							<c:if test="${vo.depth > 1}">
-								<c:forEach items="${vo.depth}">emsp;</c:forEach><img src="${pageContext.servletContext.contextPath}/assets/images/reply.png">
+						<td style="text-align:left; padding-left: ${vo.depth *20}px" >
+							<c:if test="${vo.depth > 0}">
+								<img src="${pageContext.servletContext.contextPath}/assets/images/reply.png">
 							</c:if>
 							<a href="${pageContext.servletContext.contextPath}/board/read?no=${vo.no}">${vo.title}</a>
 						</td>

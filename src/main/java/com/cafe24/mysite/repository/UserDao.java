@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StopWatch;
 
 import com.cafe24.mysite.exception.UserDaoException;
 import com.cafe24.mysite.vo.GuestbookVo;
@@ -46,6 +47,14 @@ public class UserDao {
 	}
 
 	public UserVo getByEmail(String email) {
-		 return sqlSession.selectOne("user.getByEmail", email);
+		return sqlSession.selectOne("user.getByEmail", email);
 	}
+	/*
+	 * 	StopWatch sw = new StopWatch();
+		sw.start();
+		UserVo vo =  sqlSession.selectOne("user.getByEmail", email);
+		sw.stop();
+		System.out.println("얼마나 걸리냐"+sw.getTotalTimeMillis());
+		return vo;
+	 */
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,15 +32,15 @@ public class BoardController {
 	}
 	
 	@GetMapping("/register")
-	public String register() {
-		return "redirect:/board/list";
+	public String register(@ModelAttribute("boardVo") BoardVo boardVo) {
+		return "board/register";
 	}
 	@PostMapping("/register")
-	public String register(BoardVo vo) {
+	public String registerPost(BoardVo vo) {
 		LOG.debug("register Post");
 		LOG.debug("vo 체크 " + vo);
 		boardService.register(vo);
-		return "board/list";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping("/read")

@@ -16,6 +16,9 @@
 			<div id="board">
 				<form class="board-form" method="post" action="${pageContext.servletContext.contextPath}/board/register">
 					<input type="hidden" name="userNo" value="${authUser.no}">
+					<input type="hidden" name="groupNo" value="${boardVo.groupNo}">
+					<input type="hidden" name="orderNo" value="${boardVo.orderNo}">
+					<input type="hidden" name="depth" value="${boardVo.depth}">
 					<table class="tbl-ex">
 						<tr>
 							<th colspan="2">글쓰기</th>

@@ -36,7 +36,7 @@
 					<c:if test="${authUser.no eq boardVo.userNo }">
 						<a href="${pageContext.servletContext.contextPath}/board/modify?no=${boardVo.no}">글수정</a>
 					</c:if>
-					<a href="${pageContext.servletContext.contextPath}/board/list">답글달기</a>
+					<a href="${pageContext.servletContext.contextPath}/board/register${boardVo.urlBuilder()}">답글달기</a>
 				</div>
 			</div>
 		</div>

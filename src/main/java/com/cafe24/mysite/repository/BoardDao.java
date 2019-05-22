@@ -36,4 +36,8 @@ public class BoardDao {
 		int count = sqlSession.update("board.update", vo);
 		return 1 == count;
 	}
+
+	public void updateOrderNo(BoardVo vo) {
+		sqlSession.update("board.updateOrderNo", vo);
+	}
 }

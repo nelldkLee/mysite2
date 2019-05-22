@@ -3,28 +3,34 @@
 
 <mapper namespace="board">
 	<select id="getList" resultType="boardvo">
-		SELECT b.no no, u.name userName,b.user_no userNo, b.title title, b.contents contents, b.hit hit, b.reg_date regDate, b.group_no groupNo, b.order_no orderNo  
+		SELECT b.no no, u.name userName,b.user_no userNo, b.title title, b.contents contents, b.hit hit, b.reg_date regDate, b.group_no groupNo, b.order_no orderNo, b.depth depth   
 			FROM board b, user u 
 		WHERE b.user_no = u.no 
-		ORDER BY b.group_no AND b.depth AND b.order_no
+		ORDER BY b.group_no DESC, b.order_no ASC
 	</select>
+	
+	<update id="updateOrderNo">
+		UPDATE board SET order_no = (order_no + 1) 
+		WHERE group_no = #{groupNo} AND order_no > #{orderNo}
+	</update>
+	
 	<insert id="insert" parameterType="boardvo">
 		INSERT INTO board(user_no, title, contents, hit, group_no, order_no, depth, reg_date) 
 			VALUES(#{userNo}, #{title}, #{contents}, 0,
 			<choose>
 				<when test="groupNo == null"> 
-					(SELECT IFNULL(MAX(b.group_no) + 1, 1) FROM board b), 1, 1, 
+					(SELECT IFNULL(MAX(b.group_no) + 1, 1) FROM board b), 1, 0, 
 				</when> 
 				<when test="groupNo != null"> 
 					#{groupNo},
-					#{orderNo}, 
-					#{depth}, 
+					#{orderNoPlus}, 
+					#{depthPlus}, 
 				</when>
 			</choose>
 			now())
 	</insert>
 	<select id="read" parameterType="integer" resultType="boardVo">
-		SELECT b.no no,u.no userNo, u.name userName, b.title title, b.contents contents, b.hit hit, b.reg_date regDate 
+		SELECT b.no no,u.no userNo, u.name userName, b.title title, b.contents contents, b.hit hit, b.reg_date regDate, b.group_no groupNo, b.order_no orderNo, b.depth depth 
 			FROM board b, user u 
 		WHERE b.user_no = u.no 
 		AND b.no = #{no}
