@@ -17,6 +17,6 @@ public class PageMaker {
 	}
 
 	private void setUp() {
-		startPage = cri.getPage() / cri.getPageViewCount()
+	//	startPage = cri.getPage() / cri.getPageViewCount()
 	}
 }

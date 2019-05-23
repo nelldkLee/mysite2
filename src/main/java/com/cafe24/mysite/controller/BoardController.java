@@ -16,9 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.cafe24.mysite.service.BoardService;
 import com.cafe24.mysite.vo.BoardVo;
 import com.cafe24.mysite.vo.UserVo;
+import com.cafe24.security.Authentication;
+import com.cafe24.security.Authorization;
+import com.cafe24.security.Authorization.Role;
 
 @Controller
 @RequestMapping("/board")
+@Authentication
 public class BoardController {
 	
 	@Autowired
@@ -31,6 +35,7 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@Authorization(role=Role.USER)
 	@GetMapping("/register")
 	public String register(@ModelAttribute("boardVo") BoardVo boardVo) {
 		return "board/register";
