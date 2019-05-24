@@ -196,6 +196,7 @@
 					<version>2.0</version>
 					<scope>provided</scope>
 				</dependency>
+				
 			</dependencies>
 		</profile>
 	</profiles>
